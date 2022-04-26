@@ -7,3 +7,6 @@ all:
 
 run: all
 	./$(TARGET)
+
+test: 
+	gcc -std=gnu99 $(TARGET).c -o $(TARGET)
