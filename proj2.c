@@ -12,6 +12,7 @@
 #include <time.h>
 #include <sys/mman.h>
 #include <pthread.h> 
+#include <stdarg.h>
 
 
 #define rand_sleep(max) {if(max!=0) usleep((rand()%max+1)*1000);}
@@ -21,22 +22,25 @@
 
 void process_H(int id, int IT);
 void process_O(int id, int IT);
+void my_printf(const char * format, ...);
 
-sem_t mutex;
-sem_t oxyQueue;
-sem_t hydroQueue;
+sem_t *mutex;
+sem_t *oxyQueue;
+sem_t *hydroQueue;
 
-sem_t barrier_mutex;
-sem_t turnstile;
-sem_t turnstile2;
+sem_t *barrier_mutex;
+sem_t *turnstile;
+sem_t *turnstile2;
 
-sem_t output;
+sem_t *output;
 
 int *molekula_cnt;
 int *molekula_release;
 
 int *oxygen;
 int *hydrogen;
+int *count;
+int *line;
 
 FILE *out;
 
@@ -68,25 +72,38 @@ int main(int argc, char **argv){
     //Validace vstupnich dat
     validate(TI); validate(TB);
 
-    sem_init(&mutex, 1, 1);
+    MMAP(mutex);
+    sem_init(mutex, 1, 1);
 
-    sem_init(&oxyQueue, 1, 0);
-    sem_init(&hydroQueue, 1, 0);
+    MMAP(oxyQueue);
+    sem_init(oxyQueue, 1, 0);
+    MMAP(hydroQueue);
+    sem_init(hydroQueue, 1, 0);
 
-    sem_init(&barrier_mutex, 1, 1);
-    sem_init(&turnstile, 1, 0);
-    sem_init(&turnstile2, 1, 1);
+    MMAP(barrier_mutex);
+    sem_init(barrier_mutex, 1, 1);
+    MMAP(turnstile);
+    sem_init(turnstile, 1, 0);
+    MMAP(turnstile2);
+    sem_init(turnstile2, 1, 1);
+    MMAP(output);
+    sem_init(output, 1, 1);
+
 
     // premenne
     MMAP(molekula_cnt);
     MMAP(molekula_release);
     MMAP(oxygen);
     MMAP(hydrogen);
+    MMAP(count);
+    MMAP(line);
 
     *molekula_cnt = 1;
     *molekula_release = 0;
     *oxygen = 0;
     *hydrogen = 0;
+    *count = 0;
+    *line = 1;
 
     out = fopen("proj2.out", "w");
     setbuf(out, NULL);
@@ -116,18 +133,28 @@ int main(int argc, char **argv){
     while(wait(NULL) > 0);
     // tu je parent
 
-    sem_destroy(&mutex);
-    sem_destroy(&oxyQueue);
-    sem_destroy(&hydroQueue);
+    sem_destroy(mutex);
+    UNMAP(mutex);
+    sem_destroy(oxyQueue);
+    UNMAP(oxyQueue);
+    sem_destroy(hydroQueue);
+    UNMAP(hydroQueue);
 
-    sem_destroy(&barrier_mutex);
-    sem_destroy(&turnstile);
-    sem_destroy(&turnstile2);
+    sem_destroy(barrier_mutex);
+    UNMAP(barrier_mutex);
+    sem_destroy(turnstile);
+    UNMAP(turnstile);
+    sem_destroy(turnstile2);
+    UNMAP(turnstile2);
+    sem_destroy(output);
+    UNMAP(output);
 
     UNMAP(molekula_cnt);
     UNMAP(molekula_release);
     UNMAP(oxygen);
     UNMAP(hydrogen);
+    UNMAP(line);
+    UNMAP(count);
 
     return 0;
 
@@ -135,29 +162,113 @@ int main(int argc, char **argv){
 }
 
 void process_H(int id, int IT){
-    printf("H %d started\n",id);
+    my_printf("H %d started\n",id);
 
     rand_sleep(IT);
+
+    my_printf("H %d queued\n",id);
+    sem_wait(mutex);
+    *hydrogen+=1;
+    if ((*hydrogen>=2)&&(*oxygen>=1)){
+        sem_post(hydroQueue);
+        sem_post(hydroQueue);
+        *hydrogen-=2;
+        sem_post(oxyQueue);
+        *oxygen-=1;
+    }else{
+        sem_post(mutex);
+
+    }
     
-    printf("H %d queued\n",id);
+    sem_wait(hydroQueue);
+    my_printf("H %d creating molecule %d\n",id, *molekula_cnt);
 
+    //barier
+    sem_wait(barrier_mutex);
+        *count +=1;
+        if(*count==3){
+            sem_wait(turnstile2);
+            sem_post(turnstile);
+        }
+    sem_post(barrier_mutex);
 
+    sem_wait(turnstile);
+    sem_post(turnstile);
 
-    printf("H %d creating molecule %d\n",id, *molekula_cnt);
-    
+    sem_wait(barrier_mutex);
+        *count-=1;
+        if (*count == 0){
+            sem_wait(turnstile);
+            sem_post(turnstile2);
+        }
+    sem_post(barrier_mutex);
 
-    exit(1);
+    sem_wait(turnstile2);
+    sem_post(turnstile2);
+    //end of barrier
+
+    exit(0);
 }
 
 void process_O(int id, int IT){
-    printf("O %d started\n",id);
+     my_printf("O %d started\n",id);
 
     rand_sleep(IT);
 
-    printf("O %d queued\n",id);
+    my_printf("O %d queued\n",id);
+    sem_wait(mutex);
+    *oxygen+=1;
+    if (*hydrogen>=2){
+        sem_post(hydroQueue);
+        sem_post(hydroQueue);
+        *hydrogen-=2;
+        sem_post(oxyQueue);
+        *oxygen-=1;
+    }else{
+        sem_post(mutex);
 
+    }
+    
+    sem_wait(oxyQueue);
+    my_printf("O %d creating molecule %d\n",id, *molekula_cnt);
 
-    printf("O %d creating molecule %d\n",id, *molekula_cnt);
+    //barier
+    sem_wait(barrier_mutex);
+        *count +=1;
+        if(*count==3){
+            sem_wait(turnstile2);
+            sem_post(turnstile);
+        }
+    sem_post(barrier_mutex);
 
-    exit(1);
+    sem_wait(turnstile);
+    sem_post(turnstile);
+
+    sem_wait(barrier_mutex);
+        *count-=1;
+        if (*count == 0){
+            sem_wait(turnstile);
+            sem_post(turnstile2);
+        }
+    sem_post(barrier_mutex);
+
+    sem_wait(turnstile2);
+    sem_post(turnstile2);
+    //end of barrier
+
+    sem_post(mutex);
+
+    exit(0);
+}
+
+void my_printf(const char * format, ...)
+{
+    sem_wait(output);
+    va_list args;
+    va_start (args, format);
+    fprintf(out, "%d: ", *line);
+    (*line)++;
+    vfprintf (out, format, args);
+    va_end (args);
+    sem_post(output);
 }

@@ -1,0 +1,27 @@
+1: H 1 started
+2: H 2 started
+3: H 3 started
+4: H 6 started
+5: H 5 started
+6: H 4 started
+7: O 1 started
+8: O 2 started
+9: O 3 started
+10: H 1 queued
+11: H 2 queued
+12: H 3 queued
+13: H 6 queued
+14: H 5 queued
+15: H 4 queued
+16: O 1 queued
+17: H 1 creating molecule 1
+18: H 2 creating molecule 1
+19: O 1 creating molecule 1
+20: O 2 queued
+21: O 3 queued
+22: H 3 creating molecule 1
+23: O 2 creating molecule 1
+24: H 6 creating molecule 1
+25: O 3 creating molecule 1
+26: H 5 creating molecule 1
+27: H 4 creating molecule 1
