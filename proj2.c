@@ -21,26 +21,24 @@
 
 void process_H(int id, int IT);
 void process_O(int id, int IT);
-void generator(int H_cnt,int O_cnt, int IT);
-sem_t semaphore;
-sem_t sem_start_H;
-sem_t sem_start_O;
 
-sem_t sem_molecule_O;
-sem_t sem_molecule_H;
+sem_t mutex;
+sem_t oxyQueue;
+sem_t hydroQueue;
 
-sem_t sem_release;
+sem_t barrier_mutex;
+sem_t turnstile;
+sem_t turnstile2;
+
+sem_t output;
 
 int *molekula_cnt;
 int *molekula_release;
 
-int *O_CNT;
-int *H_CNT;
+int *oxygen;
+int *hydrogen;
 
-
-int *mol_idx;
-
-
+FILE *out;
 
 //validace obsahu dat
 void validate(int val){
@@ -70,105 +68,70 @@ int main(int argc, char **argv){
     //Validace vstupnich dat
     validate(TI); validate(TB);
 
-    
+    sem_init(&mutex, 1, 1);
 
-    sem_init(&semaphore, 1, 1);
+    sem_init(&oxyQueue, 1, 0);
+    sem_init(&hydroQueue, 1, 0);
 
-    sem_init(&sem_start_H, 1, 2);
-    sem_init(&sem_start_O, 1, 1);
-
-    sem_init(&sem_molecule_H, 1, 0);
-    sem_init(&sem_molecule_O, 1, 0);
-    sem_init(&sem_release, 1, 0);
+    sem_init(&barrier_mutex, 1, 1);
+    sem_init(&turnstile, 1, 0);
+    sem_init(&turnstile2, 1, 1);
 
     // premenne
     MMAP(molekula_cnt);
     MMAP(molekula_release);
-    MMAP(mol_idx);
-    MMAP(O_CNT);
-    MMAP(H_CNT);
+    MMAP(oxygen);
+    MMAP(hydrogen);
 
-    *molekula_cnt = 0;
+    *molekula_cnt = 1;
     *molekula_release = 0;
+    *oxygen = 0;
+    *hydrogen = 0;
 
-    *mol_idx = 0;
+    out = fopen("proj2.out", "w");
+    setbuf(out, NULL);
 
-    *O_CNT = NO;
-    *H_CNT = NH;
-
-    int id = fork();
-    if (id==0){
-        
-        generator(NH,NO,TI);
-        exit(0);
-        
+    for(int i=1; i<= NH; i++){
+        pid_t id = fork();
+        if(id==0){
+            process_H(i,TI);
+        }
+        else if(id<0){
+			fprintf(stderr, "ERR FORKING\n");
+			exit(1);
+		}
     }
 
-    while(*H_CNT > 1 && *O_CNT > 0 ){
-        int test = 0;
-        sem_getvalue(&sem_molecule_H, &test);
-        printf("--%d\n",test);  
-        if(*molekula_cnt == 3){
-            *mol_idx++;
-            
-            sem_post(&sem_molecule_H);
-            sem_post(&sem_molecule_H);
-            sem_post(&sem_molecule_O);
+    for(int i=1; i<=NO; i++){
+        pid_t id = fork();
+        if(id==0){
+            process_O(i,TI);
         }
-        if(*molekula_release == 3){
-            *molekula_cnt = 0;
-            *molekula_release = 0;
-            sem_post(&sem_release);
-            sem_post(&sem_release);
-            sem_post(&sem_release);
-        }
+        else if(id<0){
+			fprintf(stderr, "ERR FORKING\n");
+			exit(1);
+		}
     }
 
+    while(wait(NULL) > 0);
     // tu je parent
 
+    sem_destroy(&mutex);
+    sem_destroy(&oxyQueue);
+    sem_destroy(&hydroQueue);
 
-    sem_destroy(&semaphore);
-    sem_destroy(&sem_start_H);
-    sem_destroy(&sem_start_O);
-
-    sem_destroy(&sem_molecule_H);
-    sem_destroy(&sem_molecule_O);
-    sem_destroy(&sem_release);
+    sem_destroy(&barrier_mutex);
+    sem_destroy(&turnstile);
+    sem_destroy(&turnstile2);
 
     UNMAP(molekula_cnt);
     UNMAP(molekula_release);
-    UNMAP(mol_idx);
-    UNMAP(O_CNT);
-    UNMAP(H_CNT);
-
+    UNMAP(oxygen);
+    UNMAP(hydrogen);
 
     return 0;
 
 
-}
-
-void generator(int H_cnt,int O_cnt, int IT){
-    for(int i=1; i<= H_cnt; i++){
-        pid_t id = fork();
-        if(id==0){
-            process_H(i,IT);
-        }
-        else if(id<0){
-			fprintf(stderr, "ERR FORKING\n");
-			exit(1);
-		}
-    }
-
-    for(int i=1; i<= O_cnt; i++){
-        pid_t id = fork();
-        if(id==0){
-            process_O(i,IT);
-        }
-        else if(id<0){
-			fprintf(stderr, "ERR FORKING\n");
-			exit(1);
-		}
-    }
 }
 
 void process_H(int id, int IT){
@@ -178,19 +141,11 @@ void process_H(int id, int IT){
     
     printf("H %d queued\n",id);
 
-    sem_wait(&sem_start_H);
-    *molekula_cnt++;
 
-    sem_wait(&sem_molecule_H);
-    *molekula_release++;
 
-    printf("H %d creating molecule %d\n",id,mol_idx);
+    printf("H %d creating molecule %d\n",id, *molekula_cnt);
     
-    sem_wait(&sem_release);
 
-    sem_post(&sem_start_H);
-
-    *H_CNT--;
     exit(1);
 }
 
@@ -201,20 +156,8 @@ void process_O(int id, int IT){
 
     printf("O %d queued\n",id);
 
-    sem_wait(&sem_start_O);
-    *molekula_cnt++;
-    //uz caka na vytvorenie molekuly
 
-    sem_wait(&sem_molecule_O);
-    *molekula_release++;
+    printf("O %d creating molecule %d\n",id, *molekula_cnt);
 
-    printf("O %d creating molecule %d\n",id,mol_idx);
-    
-    sem_wait(&sem_release);
-
-    sem_post(&sem_start_O);
-
-
-    *O_CNT--;
     exit(1);
 }
