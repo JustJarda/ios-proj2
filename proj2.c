@@ -1,3 +1,4 @@
+//Just include stuffs
 #include <stdio.h>
 #include <stdbool.h>
 #include <stdlib.h>
@@ -14,16 +15,19 @@
 #include <pthread.h> 
 #include <stdarg.h>
 
-
+//Just define stuffs
 #define rand_sleep(max) {if(max!=0) usleep((rand()%max+1)*1000);}
 #define MMAP(ptr) {(ptr) = mmap(NULL, sizeof(*(ptr)), PROT_READ | PROT_WRITE, MAP_SHARED | MAP_ANONYMOUS, -1, 0);}
 #define UNMAP(ptr) {munmap((ptr), sizeof(*(ptr)));}
 
-
+//Deklarace funkcí
 void process_H(int id, int IT);
 void process_O(int id, int IT);
 void my_printf(const char * format, ...);
+void argcount(int argc);
+void validate(int val);
 
+//Definice promennych
 sem_t *mutex;
 sem_t *oxyQueue;
 sem_t *hydroQueue;
@@ -43,22 +47,6 @@ int *count;
 int *line;
 
 FILE *out;
-
-//validace obsahu dat
-void validate(int val){
-    if ((val<0) || (val >1000)){
-        fprintf(stderr ,"Error input. Please insert number in range 0 - 1000.\n");
-        exit(1);
-    } 
-}
-
-//validace poctu argumentu
-void argcount(int argc){
-    if (argc != 5){
-        fprintf(stderr, "Too many or few arguments\n");
-        exit(1);
-    }
-}
 
 /*-------------------------------------------------------------------------------------
 ------------------------------------------ MAIN ---------------------------------------
@@ -172,6 +160,8 @@ int main(int argc, char **argv){
 /*----------------------------------------------------------------------------------
 --------------------------------- KONEC MAINU --------------------------------------
 ---------------------------------------------------------------------------------*/
+
+/******************** DEFINICE FUNKCI ***********************/
 
 
 /****** Proces vodík *******/
@@ -287,4 +277,20 @@ void my_printf(const char * format, ...)
     vfprintf (out, format, args);
     va_end (args);
     sem_post(output);
+}
+
+//validace poctu argumentu
+void argcount(int argc){
+    if (argc != 5){
+        fprintf(stderr, "Too many or few arguments\n");
+        exit(1);
+    }
+}
+
+//validace obsahu dat
+void validate(int val){
+    if ((val<0) || (val >1000)){
+        fprintf(stderr ,"Error input. Please insert number in range 0 - 1000.\n");
+        exit(1);
+    } 
 }
