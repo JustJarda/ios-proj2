@@ -60,18 +60,22 @@ void argcount(int argc){
     }
 }
 
+/*-----------MAIN--------*/
+
 int main(int argc, char **argv){
 
-    argcount(argc);
-    //Zpracovani parametru
+    argcount(argc);//Kontrola, zda pocet parametru sedi
+
+    /***************Zpracovani parametru***********/
     int NO = atoi(argv[1]); //nuber of oxygen
     int NH = atoi(argv[2]); //number of hydrogen
     int TI = atoi(argv[3]); //time[ms] that atom waits to add himself to queue
     int TB = atoi(argv[4]); //time[ms] needed for make 1 molecule
 
-    //Validace vstupnich dat
+    /******************Validace vstupnich dat*************/
     validate(TI); validate(TB);
 
+    /*************** Inicialzace semaforu *****************/
     MMAP(mutex);
     sem_init(mutex, 1, 1);
 
@@ -90,7 +94,7 @@ int main(int argc, char **argv){
     sem_init(output, 1, 1);
 
 
-    // premenne
+    /********* Sdilene promenne ***********/
     MMAP(molekula_cnt);
     MMAP(molekula_release);
     MMAP(oxygen);
@@ -105,9 +109,11 @@ int main(int argc, char **argv){
     *count = 0;
     *line = 1;
 
+    /************Vystupni soubor**************/
     out = fopen("proj2.out", "w");
     setbuf(out, NULL);
 
+    /***********Tvoreni procesu**************/
     for(int i=1; i<= NH; i++){
         pid_t id = fork();
         if(id==0){
@@ -131,7 +137,6 @@ int main(int argc, char **argv){
     }
 
     while(wait(NULL) > 0);
-    // tu je parent
 
     sem_destroy(mutex);
     UNMAP(mutex);
@@ -160,6 +165,8 @@ int main(int argc, char **argv){
 
 
 }
+
+/*---------------KONEC MAINU-------------*/
 
 void process_H(int id, int IT){
     my_printf("H %d started\n",id);
