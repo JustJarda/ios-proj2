@@ -60,7 +60,9 @@ void argcount(int argc){
     }
 }
 
-/*-----------MAIN--------*/
+/*-------------------------------------------------------------------------------------
+------------------------------------------ MAIN ---------------------------------------
+---------------------------------------------------------------------------------------*/
 
 int main(int argc, char **argv){
 
@@ -136,6 +138,7 @@ int main(int argc, char **argv){
 		}
     }
 
+    /************** Destroy semaforu ******************/
     while(wait(NULL) > 0);
 
     sem_destroy(mutex);
@@ -166,8 +169,12 @@ int main(int argc, char **argv){
 
 }
 
-/*---------------KONEC MAINU-------------*/
+/*----------------------------------------------------------------------------------
+--------------------------------- KONEC MAINU --------------------------------------
+---------------------------------------------------------------------------------*/
 
+
+/****** Proces vodík *******/
 void process_H(int id, int IT){
     my_printf("H %d started\n",id);
 
@@ -217,6 +224,7 @@ void process_H(int id, int IT){
     exit(0);
 }
 
+/********* Proces Kyslík *********/
 void process_O(int id, int IT){
      my_printf("O %d started\n",id);
 
@@ -268,6 +276,7 @@ void process_O(int id, int IT){
     exit(0);
 }
 
+/******* Vylepšený printf *******/
 void my_printf(const char * format, ...)
 {
     sem_wait(output);
