@@ -166,11 +166,11 @@ int main(int argc, char **argv){
 
 /****** Proces vodík *******/
 void process_H(int id, int IT){
-    my_printf("H %d started\n",id);
+    my_printf("H %d: started\n",id);
 
     rand_sleep(IT);
 
-    my_printf("H %d queued\n",id);
+    my_printf("H %d: going to queue\n",id);
     sem_wait(mutex);
     *hydrogen+=1;
     if ((*hydrogen>=2)&&(*oxygen>=1)){
@@ -185,7 +185,7 @@ void process_H(int id, int IT){
     }
     
     sem_wait(hydroQueue);
-    my_printf("H %d creating molecule %d\n",id, *molekula_cnt);
+    my_printf("H %d: creating molecule %d\n",id, *molekula_cnt);
 
     //barier
     sem_wait(barrier_mutex);
@@ -208,6 +208,7 @@ void process_H(int id, int IT){
     sem_post(barrier_mutex);
 
     sem_wait(turnstile2);
+
     sem_post(turnstile2);
     //end of barrier
 
@@ -216,11 +217,11 @@ void process_H(int id, int IT){
 
 /********* Proces Kyslík *********/
 void process_O(int id, int IT){
-     my_printf("O %d started\n",id);
+     my_printf("O %d: started\n",id);
 
     rand_sleep(IT);
 
-    my_printf("O %d queued\n",id);
+    my_printf("O %d: going to queue\n",id);
     sem_wait(mutex);
     *oxygen+=1;
     if (*hydrogen>=2){
@@ -245,6 +246,8 @@ void process_O(int id, int IT){
             sem_post(turnstile);
         }
     sem_post(barrier_mutex);
+
+    (*molekula_cnt)++;//inkrementace poctu molekul
 
     sem_wait(turnstile);
     sem_post(turnstile);
