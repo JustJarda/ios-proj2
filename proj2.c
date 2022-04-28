@@ -104,6 +104,7 @@ int main(int argc, char **argv){
     setbuf(out, NULL);
 
     /***********Tvoreni procesu**************/
+    srand(time(0));
     for(int i=1; i<= NH; i++){
         pid_t id = fork();
         if(id==0){
