@@ -40,6 +40,7 @@ sem_t *output;
 
 int *molekula_cnt;
 int *molekula_release;
+int *molekula_process;
 
 int *oxygen;
 int *hydrogen;
@@ -58,7 +59,9 @@ int main(int argc, char **argv){
 
     /***************Zpracovani parametru***********/
     int NO = atoi(argv[1]); //nuber of oxygen
+        if (NO<=0){fprintf(stderr, "Not Enought atoms :(\n");exit(1);}
     int NH = atoi(argv[2]); //number of hydrogen
+        if (NH<=0){fprintf(stderr, "Not Enought atoms :(\n");exit(1);}
     int TI = atoi(argv[3]); //time[ms] that atom waits to add himself to queue
     int TB = atoi(argv[4]); //time[ms] needed for make 1 molecule
 
@@ -91,6 +94,7 @@ int main(int argc, char **argv){
     MMAP(hydrogen);
     MMAP(count);
     MMAP(line);
+    MMAP(molekula_process);
 
     *molekula_cnt = 1;
     *molekula_release = 0;
@@ -98,13 +102,14 @@ int main(int argc, char **argv){
     *hydrogen = 0;
     *count = 0;
     *line = 1;
+    *molekula_process = 0;
 
     /************Vystupni soubor**************/
     out = fopen("proj2.out", "w");
     setbuf(out, NULL);
 
     /***********Tvoreni procesu**************/
-    srand(time(0));
+
     for(int i=1; i<= NH; i++){
         pid_t id = fork();
         if(id==0){
@@ -152,6 +157,7 @@ int main(int argc, char **argv){
     UNMAP(hydrogen);
     UNMAP(line);
     UNMAP(count);
+    UNMAP(molekula_process);
 
     return 0;
 
@@ -167,6 +173,7 @@ int main(int argc, char **argv){
 
 /****** Proces vodík *******/
 void process_H(int id, int IT){
+    srand(time(NULL) * getpid());
     my_printf("H %d: started\n",id);
 
     rand_sleep(IT);
@@ -218,7 +225,8 @@ void process_H(int id, int IT){
 
 /********* Proces Kyslík *********/
 void process_O(int id, int IT){
-     my_printf("O %d: started\n",id);
+    srand(time(NULL) * getpid());
+    my_printf("O %d: started\n",id);
 
     rand_sleep(IT);
 
