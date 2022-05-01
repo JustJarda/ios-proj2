@@ -26,6 +26,7 @@ void process_O(int id, int IT);
 void my_printf(const char * format, ...);
 void argcount(int argc);
 void validate(int val);
+int mol_count(int oxygen, int hydrogen);
 
 //Definice promennych
 sem_t *mutex;
@@ -41,6 +42,7 @@ sem_t *output;
 int *molekula_cnt;
 int *molekula_release;
 int *molekula_process;
+int *max_mol;
 
 int *oxygen;
 int *hydrogen;
@@ -95,6 +97,7 @@ int main(int argc, char **argv){
     MMAP(count);
     MMAP(line);
     MMAP(molekula_process);
+    MMAP(max_mol);
 
     *molekula_cnt = 1;
     *molekula_release = 0;
@@ -103,12 +106,16 @@ int main(int argc, char **argv){
     *count = 0;
     *line = 1;
     *molekula_process = 0;
+    *max_mol = 1;
 
     /************Vystupni soubor**************/
     out = fopen("proj2.out", "w");
     setbuf(out, NULL);
 
     /***********Tvoreni procesu**************/
+
+    *molekula_process = mol_count(NO, NH);
+    *max_mol = mol_count(NO, NH);
 
     for(int i=1; i<= NH; i++){
         pid_t id = fork();
@@ -158,6 +165,7 @@ int main(int argc, char **argv){
     UNMAP(line);
     UNMAP(count);
     UNMAP(molekula_process);
+    UNMAP(max_mol);
 
     return 0;
 
@@ -181,18 +189,28 @@ void process_H(int id, int IT){
     my_printf("H %d: going to queue\n",id);
     sem_wait(mutex);
     *hydrogen+=1;
-    if ((*hydrogen>=2)&&(*oxygen>=1)){
-        sem_post(hydroQueue);
-        sem_post(hydroQueue);
-        *hydrogen-=2;
-        sem_post(oxyQueue);
-        *oxygen-=1;
-    }else{
-        sem_post(mutex);
-
+    if (*molekula_process <= *max_mol){
+        if ((*hydrogen>=2)&&(*oxygen>=1)){
+            sem_post(hydroQueue);
+            sem_post(hydroQueue);
+            *hydrogen-=2;
+            sem_post(oxyQueue);
+            *oxygen-=1;
+        }else{
+            sem_post(mutex);
+        }
     }
     
     sem_wait(hydroQueue);
+
+    if (*molekula_process > *max_mol)
+	{
+		my_printf("H %d: not enough O or H\n", id);
+		sem_post(mutex);
+		sem_post(hydroQueue);
+		exit(0);
+	}
+
     my_printf("H %d: creating molecule %d\n",id, *molekula_cnt);
 
     //barier
@@ -233,18 +251,29 @@ void process_O(int id, int IT){
     my_printf("O %d: going to queue\n",id);
     sem_wait(mutex);
     *oxygen+=1;
-    if (*hydrogen>=2){
-        sem_post(hydroQueue);
-        sem_post(hydroQueue);
-        *hydrogen-=2;
-        sem_post(oxyQueue);
-        *oxygen-=1;
-    }else{
-        sem_post(mutex);
 
+    if(*molekula_process<=*max_mol){
+        if (*hydrogen>=2){
+            sem_post(hydroQueue);
+            sem_post(hydroQueue);
+            *hydrogen-=2;
+            sem_post(oxyQueue);
+            *oxygen-=1;
+        }else{
+            sem_post(mutex);
+        }
     }
     
     sem_wait(oxyQueue);
+
+    if (*molekula_process > *max_mol)
+	{
+		my_printf("O %d: not enough H\n", id);
+		sem_post(oxyQueue);
+		sem_post(mutex);
+		exit(0);
+	}
+
     my_printf("O %d creating molecule %d\n",id, *molekula_cnt);
 
     //barier
@@ -305,4 +334,9 @@ void validate(int val){
         fprintf(stderr ,"Error input. Please insert number in range 0 - 1000.\n");
         exit(1);
     } 
+}
+
+int mol_count(int oxygen, int hydrogen)
+{
+	return ((2*oxygen) < hydrogen) ? oxygen : (hydrogen/2);
 }
