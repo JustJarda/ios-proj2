@@ -20,7 +20,7 @@
 #define MMAP(ptr) {(ptr) = mmap(NULL, sizeof(*(ptr)), PROT_READ | PROT_WRITE, MAP_SHARED | MAP_ANONYMOUS, -1, 0);}
 #define UNMAP(ptr) {munmap((ptr), sizeof(*(ptr)));}
 
-//Deklarace funkcí
+//Just Deklarace funkcí
 void process_H(int id, int IT);
 void process_O(int id, int IT);
 void my_printf(const char * format, ...);
@@ -28,7 +28,7 @@ void argcount(int argc);
 void validate(int val);
 int mol_count(int oxygen, int hydrogen);
 
-//Definice promennych
+//Just Definice promennych
 sem_t *mutex;
 sem_t *oxyQueue;
 sem_t *hydroQueue;
@@ -43,6 +43,7 @@ int *molekula_cnt;
 int *molekula_release;
 int *molekula_process;
 int *max_mol;
+int *ocekavany_pocet;
 
 int *oxygen;
 int *hydrogen;
@@ -52,7 +53,7 @@ int *line;
 FILE *out;
 
 /*-------------------------------------------------------------------------------------
------------------------------------------- MAIN ---------------------------------------
+------------------------------------------JUST MAIN -----------------------------------
 ---------------------------------------------------------------------------------------*/
 
 int main(int argc, char **argv){
@@ -98,6 +99,7 @@ int main(int argc, char **argv){
     MMAP(line);
     MMAP(molekula_process);
     MMAP(max_mol);
+    MMAP(ocekavany_pocet);
 
     *molekula_cnt = 1;
     *molekula_release = 0;
@@ -107,6 +109,7 @@ int main(int argc, char **argv){
     *line = 1;
     *molekula_process = 0;
     *max_mol = 1;
+    *ocekavany_pocet = 0;
 
     /************Vystupni soubor**************/
     out = fopen("proj2.out", "w");
@@ -139,7 +142,7 @@ int main(int argc, char **argv){
 		}
     }
 
-    /************** Destroy semaforu ******************/
+    /************** Destroy semaforu a pameti******************/
     while(wait(NULL) > 0);
 
     sem_destroy(mutex);
@@ -166,17 +169,17 @@ int main(int argc, char **argv){
     UNMAP(count);
     UNMAP(molekula_process);
     UNMAP(max_mol);
+    UNMAP(ocekavany_pocet);
 
     return 0;
-
 
 }
 
 /*----------------------------------------------------------------------------------
---------------------------------- KONEC MAINU --------------------------------------
+---------------------------------JUST END OF MAIN ----------------------------------
 ---------------------------------------------------------------------------------*/
 
-/******************** DEFINICE FUNKCI ***********************/
+/******************** JUST DEFINICE FUNKCI ***********************/
 
 
 /****** Proces vodík *******/
@@ -203,7 +206,8 @@ void process_H(int id, int IT){
     
     sem_wait(hydroQueue);
 
-    if (*molekula_process > *max_mol)
+    if (*molekula_process > *max_mol)//rovna sa expecting molekules
+
 	{
 		my_printf("H %d: not enough O or H\n", id);
 		sem_post(mutex);
@@ -265,6 +269,7 @@ void process_O(int id, int IT){
     }
     
     sem_wait(oxyQueue);
+    //ked vojdu do funkcie, tak tam bude coubnter na tz tri a FLAG
 
     if (*molekula_process > *max_mol)
 	{
@@ -272,6 +277,7 @@ void process_O(int id, int IT){
 		sem_post(oxyQueue);
 		sem_post(mutex);
 		exit(0);
+        //vynulovani FLAGU
 	}
 
     my_printf("O %d creating molecule %d\n",id, *molekula_cnt);
@@ -336,6 +342,7 @@ void validate(int val){
     } 
 }
 
+//pocet
 int mol_count(int oxygen, int hydrogen)
 {
 	return ((2*oxygen) < hydrogen) ? oxygen : (hydrogen/2);
