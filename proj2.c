@@ -223,8 +223,11 @@ void process_H(int id, int IT){
         if(*count==3){
             sem_wait(turnstile2);
             sem_post(turnstile);
+            my_printf("H %d: molecule %d created\n", id, *molekula_cnt-1);
         }
     sem_post(barrier_mutex);
+
+    
 
     sem_wait(turnstile);
     sem_post(turnstile);
@@ -288,10 +291,12 @@ void process_O(int id, int IT){
         if(*count==3){
             sem_wait(turnstile2);
             sem_post(turnstile);
+            my_printf("O %d: molecule %d created\n", id, *molekula_cnt);
         }
     sem_post(barrier_mutex);
 
     (*molekula_cnt)++;//inkrementace poctu molekul
+    
 
     sem_wait(turnstile);
     sem_post(turnstile);
