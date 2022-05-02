@@ -1,19 +1,13 @@
 //Just include stuffs
 #include <stdio.h>
-#include <stdbool.h>
 #include <stdlib.h>
-#include <sys/types.h>
-#include <sys/types.h>
 #include <sys/wait.h>
 #include <unistd.h>
-#include <string.h>
 #include <sys/shm.h>
 #include <semaphore.h>
-#include <fcntl.h>
 #include <time.h>
 #include <sys/mman.h>
-#include <pthread.h> 
-#include <stdarg.h>
+#include <stdarg.h>//pro my_print
 
 //Just define stuffs
 #define rand_sleep(max) {if(max!=0) usleep((rand()%max+1)*1000);}
@@ -121,11 +115,9 @@ int main(int argc, char **argv){
         for (int i = 0; i < NH+NO; i++)
         {
             exit(0);
-        }
-        
+        }    
     }
     
-
     for(int i=1; i<= NH; i++){
         pid_t id = fork();
         if(id==0){
@@ -212,7 +204,7 @@ void process_H(int id, int IT){
     
     sem_wait(hydroQueue);
 
-    fprintf(stderr, "%d\n", *molekula_cnt);
+    //fprintf(stderr, "%d\n", *molekula_cnt);
     if (*molekula_cnt > *ocekavany_pocet)
 
     {
@@ -300,10 +292,7 @@ void process_O(int id, int IT){
     sem_wait(turnstile);
     sem_post(turnstile);
 
-    //(*molekula_cnt)++;//inkrementace poctu molekul
-
     my_printf("O %d: molecule %d created\n", id, *molekula_cnt);
-
 
     sem_wait(barrier_mutex);
         *count-=1;
@@ -318,7 +307,7 @@ void process_O(int id, int IT){
     //end of barrier
     if (*molekula_cnt == *ocekavany_pocet) {
         // Signal to subsequent processes that we are over the limit
-	fprintf(stderr, "done\n");
+	//fprintf(stderr, "done\n");
         (*molekula_cnt)++; 
         sem_post(oxyQueue);
         sem_post(hydroQueue);
