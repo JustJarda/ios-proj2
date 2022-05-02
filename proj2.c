@@ -19,6 +19,7 @@
 #define rand_sleep(max) {if(max!=0) usleep((rand()%max+1)*1000);}
 #define MMAP(ptr) {(ptr) = mmap(NULL, sizeof(*(ptr)), PROT_READ | PROT_WRITE, MAP_SHARED | MAP_ANONYMOUS, -1, 0);}
 #define UNMAP(ptr) {munmap((ptr), sizeof(*(ptr)));}
+#define MIN(x, y) (((x) < (y)) ? (x) : (y))
 
 //Just Deklarace funkcí
 void process_H(int id, int IT);
@@ -44,6 +45,7 @@ int *molekula_release;
 int *molekula_process;
 int *max_mol;
 int *ocekavany_pocet;
+int *mol_three;
 
 int *oxygen;
 int *hydrogen;
@@ -62,9 +64,9 @@ int main(int argc, char **argv){
 
     /***************Zpracovani parametru***********/
     int NO = atoi(argv[1]); //nuber of oxygen
-        if (NO<=0){fprintf(stderr, "Not Enought atoms :(\n");exit(1);}
+        if (NO<=0){fprintf(stderr, "Not Enought atoms :(\n");exit(0);}
     int NH = atoi(argv[2]); //number of hydrogen
-        if (NH<=0){fprintf(stderr, "Not Enought atoms :(\n");exit(1);}
+        if (NH<=0){fprintf(stderr, "Not Enought atoms :(\n");exit(0);}
     int TI = atoi(argv[3]); //time[ms] that atom waits to add himself to queue
     int TB = atoi(argv[4]); //time[ms] needed for make 1 molecule
 
@@ -100,6 +102,7 @@ int main(int argc, char **argv){
     MMAP(molekula_process);
     MMAP(max_mol);
     MMAP(ocekavany_pocet);
+    MMAP(mol_three)
 
     *molekula_cnt = 1;
     *molekula_release = 0;
@@ -109,7 +112,8 @@ int main(int argc, char **argv){
     *line = 1;
     *molekula_process = 0;
     *max_mol = 1;
-    *ocekavany_pocet = 0;
+    *ocekavany_pocet = (MIN(NO*2, NH)/2);
+    *mol_three = 0;
 
     /************Vystupni soubor**************/
     out = fopen("proj2.out", "w");
@@ -118,7 +122,7 @@ int main(int argc, char **argv){
     /***********Tvoreni procesu**************/
 
     *molekula_process = mol_count(NO, NH);
-    *max_mol = mol_count(NO, NH);
+    //*ocekavany_pocet = mol_count(NO, NH);
 
     for(int i=1; i<= NH; i++){
         pid_t id = fork();
@@ -170,6 +174,7 @@ int main(int argc, char **argv){
     UNMAP(molekula_process);
     UNMAP(max_mol);
     UNMAP(ocekavany_pocet);
+    UNMAP(mol_three);
 
     return 0;
 
@@ -192,7 +197,7 @@ void process_H(int id, int IT){
     my_printf("H %d: going to queue\n",id);
     sem_wait(mutex);
     *hydrogen+=1;
-    if (*molekula_process <= *max_mol){
+    if (*molekula_process <= *ocekavany_pocet){
         if ((*hydrogen>=2)&&(*oxygen>=1)){
             sem_post(hydroQueue);
             sem_post(hydroQueue);
@@ -206,7 +211,7 @@ void process_H(int id, int IT){
     
     sem_wait(hydroQueue);
 
-    if (*molekula_process > *max_mol)//rovna sa expecting molekules
+    if (*molekula_process > *ocekavany_pocet)
 
 	{
 		my_printf("H %d: not enough O or H\n", id);
@@ -223,14 +228,36 @@ void process_H(int id, int IT){
         if(*count==3){
             sem_wait(turnstile2);
             sem_post(turnstile);
-            my_printf("H %d: molecule %d created\n", id, *molekula_cnt-1);
+
         }
     sem_post(barrier_mutex);
 
-    
 
     sem_wait(turnstile);
     sem_post(turnstile);
+
+    my_printf("H %d: molecule %d created\n", id, *molekula_cnt);
+    //(*molekula_process)++;
+
+    (*mol_three)++;
+
+	if (*mol_three == 3)
+	{
+		(*molekula_cnt)++;
+		*mol_three = 0;
+	}
+	
+	if (*molekula_process > *ocekavany_pocet)
+	{
+		for (int i=0; i<*line; i++)
+		{
+			sem_post(oxyQueue);
+		}
+		for (int i=0; i<*line; i++)
+		{
+			sem_post(hydroQueue);
+		}
+	}
 
     sem_wait(barrier_mutex);
         *count-=1;
@@ -259,7 +286,7 @@ void process_O(int id, int IT){
     sem_wait(mutex);
     *oxygen+=1;
 
-    if(*molekula_process<=*max_mol){
+    if(*molekula_process<=*ocekavany_pocet){
         if (*hydrogen>=2){
             sem_post(hydroQueue);
             sem_post(hydroQueue);
@@ -274,7 +301,7 @@ void process_O(int id, int IT){
     sem_wait(oxyQueue);
     //ked vojdu do funkcie, tak tam bude coubnter na tz tri a FLAG
 
-    if (*molekula_process > *max_mol)
+    if (*molekula_process > *ocekavany_pocet)
 	{
 		my_printf("O %d: not enough H\n", id);
 		sem_post(oxyQueue);
@@ -291,15 +318,37 @@ void process_O(int id, int IT){
         if(*count==3){
             sem_wait(turnstile2);
             sem_post(turnstile);
-            my_printf("O %d: molecule %d created\n", id, *molekula_cnt);
-        }
-    sem_post(barrier_mutex);
 
-    (*molekula_cnt)++;//inkrementace poctu molekul
-    
+        }
+    sem_post(barrier_mutex);  
 
     sem_wait(turnstile);
     sem_post(turnstile);
+
+    //(*molekula_cnt)++;//inkrementace poctu molekul
+
+    my_printf("O %d: molecule %d created\n", id, *molekula_cnt);
+    (*molekula_process)++;
+
+    (*mol_three)++;
+
+    if (*mol_three == 3)
+	{
+		(*molekula_cnt)++;
+		*mol_three = 0;
+	}
+
+    if (*molekula_process > *ocekavany_pocet){
+		for (int i=0; i<*line; i++)
+		{
+			sem_post(oxyQueue);
+		}
+		for (int i=0; i<*line; i++)
+		{
+			sem_post(hydroQueue);
+		}
+	}
+	
 
     sem_wait(barrier_mutex);
         *count-=1;
@@ -350,5 +399,6 @@ void validate(int val){
 //pocet
 int mol_count(int oxygen, int hydrogen)
 {
+
 	return ((2*oxygen) < hydrogen) ? oxygen : (hydrogen/2);
 }
