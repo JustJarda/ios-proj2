@@ -282,7 +282,7 @@ void process_O(int id, int IT){
         sem_post(oxyQueue); // let next oxygen pass
         exit(0);
     }
-    my_printf("O %d creating molecule %d\n",id, *molekula_cnt);
+    my_printf("O %d: creating molecule %d\n",id, *molekula_cnt);
 
     //barier
     sem_wait(barrier_mutex);
