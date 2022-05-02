@@ -112,10 +112,15 @@ int main(int argc, char **argv){
     *ocekavany_pocet = mol_count(NO, NH);
     if (*ocekavany_pocet==0)
     {
-        for (int i = 0; i < NH+NO; i++)
+        for (int i = 0; i < NH; i++)
         {
-            exit(0);
-        }    
+            my_printf("H %d: not enough O or H\n", i);
+        }
+        for (int i = 0; i < NO; i++)
+        {
+            my_printf("O %d: not enough H\n", i);
+        }        
+        exit(0);
     }
     
     for(int i=1; i<= NH; i++){
