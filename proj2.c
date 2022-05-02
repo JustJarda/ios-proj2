@@ -116,6 +116,15 @@ int main(int argc, char **argv){
     /***********Tvoreni procesu**************/
 
     *ocekavany_pocet = mol_count(NO, NH);
+    if (*ocekavany_pocet==0)
+    {
+        for (int i = 0; i < NH+NO; i++)
+        {
+            exit(0);
+        }
+        
+    }
+    
 
     for(int i=1; i<= NH; i++){
         pid_t id = fork();
