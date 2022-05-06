@@ -9,4 +9,4 @@ Pomocí Makefilu
 - Stačí napsat: **make run** a ono se to přeloží a otestuje s hodnotami zapsanými v Makefilu
 
 ## Shrnutí 
-Projekt byl hodnocen 15/15 viz **IOS HODNOCENÍ**
+Projekt byl hodnocen 15/15 viz **IOS Hodnocení**
