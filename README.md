@@ -1,7 +1,8 @@
 # Dokumentace
 Autor: **Jaromír Otevřel - xotevr03** 
 
-Projekt: IOS projekt 2 - semafory a synchronizace - H2O problém
+Projekt: IOS projekt 2 - semafory a synchronizace 
+- H2O problém - 2022
 
 ## Spouštění a příklady použití
 
