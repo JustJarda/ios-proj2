@@ -1,0 +1,2 @@
+= prepare tests: resources
+:kontrola syntaxe vystupu => check_syntax.out

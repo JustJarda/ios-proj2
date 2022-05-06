@@ -1,0 +1,48 @@
+1: H 1: started
+2: H 2: started
+3: H 3: started
+4: H 4: started
+5: H 5: started
+6: H 6: started
+7: H 7: started
+8: O 1: started
+9: O 2: started
+10: O 3: started
+11: O 4: started
+12: O 5: started
+13: O 6: started
+14: H 1: going to queue
+15: H 2: going to queue
+16: H 3: going to queue
+17: H 4: going to queue
+18: H 5: going to queue
+19: H 6: going to queue
+20: H 7: going to queue
+21: O 1: going to queue
+22: H 1: creating molecule 1
+23: H 2: creating molecule 1
+24: O 1: creating molecule 1
+25: O 1: molecule 1 created
+26: H 1: molecule 1 created
+27: H 2: molecule 1 created
+28: O 2: going to queue
+29: O 2: creating molecule 2
+30: H 4: creating molecule 2
+31: H 3: creating molecule 2
+32: O 3: going to queue
+33: H 4: molecule 2 created
+34: H 3: molecule 2 created
+35: O 2: molecule 2 created
+36: O 4: going to queue
+37: H 6: creating molecule 3
+38: O 4: creating molecule 3
+39: H 5: creating molecule 3
+40: O 6: going to queue
+41: H 5: molecule 3 created
+42: O 4: molecule 3 created
+43: H 6: molecule 3 created
+44: O 5: going to queue
+45: H 7: not enough O or H
+46: O 3: not enough H
+47: O 6: not enough H
+48: O 5: not enough H

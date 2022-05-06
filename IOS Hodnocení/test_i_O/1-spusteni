@@ -1,0 +1,1 @@
+./proj2 40 71 30 1 <stdin >stdout 2>stderr; echo $? >errcode

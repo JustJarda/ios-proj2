@@ -1,0 +1,572 @@
+1232537 atoi(0x7ffd44ea8755, 0x7ffd44ea6628, 0x7ffd44ea6658, 0x7f9d534d4598) = 3
+1232537 atoi(0x7ffd44ea8757, 3, 0, 0x7ffd44ea8756) = 5
+1232537 atoi(0x7ffd44ea8759, 5, 0, 0x7ffd44ea8758) = 1
+1232537 atoi(0x7ffd44ea875b, 1, 0, 0x7ffd44ea875a) = 2
+1232537 mmap(0, 32, 3, 33)                       = 0x7f9d53515000
+1232537 sem_init(0x7f9d53515000, 1, 1, 0x7f9d5340bf86) = 0
+1232537 mmap(0, 32, 3, 33)                       = 0x7f9d53514000
+1232537 sem_init(0x7f9d53514000, 1, 0, 0x7f9d5340bf86) = 0
+1232537 mmap(0, 32, 3, 33)                       = 0x7f9d53513000
+1232537 sem_init(0x7f9d53513000, 1, 0, 0x7f9d5340bf86) = 0
+1232537 mmap(0, 32, 3, 33)                       = 0x7f9d53512000
+1232537 sem_init(0x7f9d53512000, 1, 1, 0x7f9d5340bf86) = 0
+1232537 mmap(0, 32, 3, 33)                       = 0x7f9d53511000
+1232537 sem_init(0x7f9d53511000, 1, 0, 0x7f9d5340bf86) = 0
+1232537 mmap(0, 32, 3, 33)                       = 0x7f9d53510000
+1232537 sem_init(0x7f9d53510000, 1, 1, 0x7f9d5340bf86) = 0
+1232537 mmap(0, 32, 3, 33)                       = 0x7f9d5350f000
+1232537 sem_init(0x7f9d5350f000, 1, 1, 0x7f9d5340bf86) = 0
+1232537 mmap(0, 4, 3, 33)                        = 0x7f9d5350e000
+1232537 mmap(0, 4, 3, 33)                        = 0x7f9d5350d000
+1232537 mmap(0, 4, 3, 33)                        = 0x7f9d5350c000
+1232537 mmap(0, 4, 3, 33)                        = 0x7f9d5350b000
+1232537 mmap(0, 4, 3, 33)                        = 0x7f9d5350a000
+1232537 mmap(0, 4, 3, 33)                        = 0x7f9d53509000
+1232537 mmap(0, 4, 3, 33)                        = 0x7f9d53508000
+1232537 mmap(0, 4, 3, 33)                        = 0x7f9d53507000
+1232537 fopen("proj2.out", "w")                  = 0x17ea2a0
+1232537 setbuf(0x17ea2a0, nil)                   = <void>
+1232537 fork()                                   = 1232538
+1232537 fork( <unfinished ...>
+1232538 <... fork resumed> )                     = 0
+1232538 time(nil <unfinished ...>
+1232539 <... fork resumed> )                     = 0
+1232537 <... fork resumed> )                     = 1232539
+1232539 time(nil <unfinished ...>
+1232537 fork( <unfinished ...>
+1232538 <... time resumed> )                     = 1651740937
+1232538 getpid( <unfinished ...>
+1232539 <... time resumed> )                     = 1651740937
+1232539 getpid( <unfinished ...>
+1232538 <... getpid resumed> )                   = 1232538
+1232539 <... getpid resumed> )                   = 1232539
+1232538 srand(1792834922 <unfinished ...>
+1232539 srand(3444575859 <unfinished ...>
+1232537 <... fork resumed> )                     = 1232540
+1232537 fork( <unfinished ...>
+1232540 <... fork resumed> )                     = 0
+1232539 <... srand resumed> )                    = <void>
+1232540 time(nil <unfinished ...>
+1232537 <... fork resumed> )                     = 1232541
+1232537 fork( <unfinished ...>
+1232540 <... time resumed> )                     = 1651740937
+1232541 <... fork resumed> )                     = 0
+1232540 getpid( <unfinished ...>
+1232541 time(nil <unfinished ...>
+1232537 <... fork resumed> )                     = 1232542
+1232537 fork( <unfinished ...>
+1232542 <... fork resumed> )                     = 0
+1232541 <... time resumed> )                     = 1651740937
+1232542 time(nil <unfinished ...>
+1232537 <... fork resumed> )                     = 1232543
+1232537 fork( <unfinished ...>
+1232542 <... time resumed> )                     = 1651740937
+1232543 <... fork resumed> )                     = 0
+1232542 getpid( <unfinished ...>
+1232543 time(nil <unfinished ...>
+1232537 <... fork resumed> )                     = 1232544
+1232537 fork( <unfinished ...>
+1232544 <... fork resumed> )                     = 0
+1232543 <... time resumed> )                     = 1651740937
+1232544 time(nil <unfinished ...>
+1232537 <... fork resumed> )                     = 1232545
+1232537 wait(nil <unfinished ...>
+1232544 <... time resumed> )                     = 1651740937
+1232545 <... fork resumed> )                     = 0
+1232544 getpid( <unfinished ...>
+1232545 time(nil <unfinished ...>
+1232543 getpid( <unfinished ...>
+1232545 <... time resumed> )                     = 1651740937
+1232545 getpid( <unfinished ...>
+1232544 <... getpid resumed> )                   = 1232544
+1232544 srand(3113345952 <unfinished ...>
+1232545 <... getpid resumed> )                   = 1232545
+1232544 <... srand resumed> )                    = <void>
+1232545 srand(470119593 <unfinished ...>
+1232544 sem_wait(0x7f9d5350f000, 2, 0x7f9d534d4024, 0x7f9d534d45c0 <unfinished ...>
+1232545 <... srand resumed> )                    = <void>
+1232544 <... sem_wait resumed> )                 = 0
+1232545 sem_wait(0x7f9d5350f000, 3, 0x7f9d534d4024, 0x7f9d534d45c0 <unfinished ...>
+1232544 fprintf(0x17ea2a0, "%d: ", 1 <unfinished ...>
+1232543 <... getpid resumed> )                   = 1232543
+1232541 getpid( <unfinished ...>
+1232543 srand(1461605015 <unfinished ...>
+1232544 <... fprintf resumed> )                  = 3
+1232542 <... getpid resumed> )                   = 1232542
+1232543 <... srand resumed> )                    = <void>
+1232542 srand(4104831374 <unfinished ...>
+1232544 vfprintf(0x17ea2a0, "O %d: started\n", 0x7ffd44ea63d8 <unfinished ...>
+1232543 sem_wait(0x7f9d5350f000, 1, 0x7f9d534d4024, 0x7f9d534d45c0 <unfinished ...>
+1232544 <... vfprintf resumed> )                 = 13
+1232542 <... srand resumed> )                    = <void>
+1232544 sem_post(0x7f9d5350f000, 0, 0x7f9d5330e740, 0 <unfinished ...>
+1232542 sem_wait(0x7f9d5350f000, 5, 0x7f9d534d4024, 0x7f9d534d45c0) = 0
+1232544 <... sem_post resumed> )                 = 0
+1232542 fprintf(0x17ea2a0, "%d: ", 2 <unfinished ...>
+1232544 rand( <unfinished ...>
+1232541 <... getpid resumed> )                   = 1232541
+1232544 <... rand resumed> )                     = 1149264586
+1232544 usleep(1000 <unfinished ...>
+1232542 <... fprintf resumed> )                  = 3
+1232542 vfprintf(0x17ea2a0, "H %d: started\n", 0x7ffd44ea63d8 <unfinished ...>
+1232541 srand(2453090437 <unfinished ...>
+1232542 <... vfprintf resumed> )                 = 13
+1232542 sem_post(0x7f9d5350f000, 0, 0x7f9d5330e740, 0 <unfinished ...>
+1232540 <... getpid resumed> )                   = 1232540
+1232541 <... srand resumed> )                    = <void>
+1232540 srand(801349500 <unfinished ...>
+1232542 <... sem_post resumed> )                 = 0
+1232543 <... sem_wait resumed> )                 = 0
+1232542 rand( <unfinished ...>
+1232543 fprintf(0x17ea2a0, "%d: ", 3 <unfinished ...>
+1232542 <... rand resumed> )                     = 209309507
+1232541 sem_wait(0x7f9d5350f000, 4, 0x7f9d534d4024, 0x7f9d534d45c0 <unfinished ...>
+1232542 usleep(1000 <unfinished ...>
+1232543 <... fprintf resumed> )                  = 3
+1232543 vfprintf(0x17ea2a0, "O %d: started\n", 0x7ffd44ea63d8 <unfinished ...>
+1232540 <... srand resumed> )                    = <void>
+1232543 <... vfprintf resumed> )                 = 13
+1232540 sem_wait(0x7f9d5350f000, 3, 0x7f9d534d4024, 0x7f9d534d45c0 <unfinished ...>
+1232543 sem_post(0x7f9d5350f000, 0, 0x7f9d5330e740, 0) = 0
+1232540 <... sem_wait resumed> )                 = 0
+1232543 rand( <unfinished ...>
+1232540 fprintf(0x17ea2a0, "%d: ", 4 <unfinished ...>
+1232543 <... rand resumed> )                     = 1442166683
+1232539 sem_wait(0x7f9d5350f000, 2, 0x7f9d534d4024, 0x7f9d534d45c0 <unfinished ...>
+1232543 usleep(1000 <unfinished ...>
+1232544 <... usleep resumed> )                   = <void>
+1232544 sem_wait(0x7f9d5350f000, 2, 0, 0x7f9d533d8a7a <unfinished ...>
+1232540 <... fprintf resumed> )                  = 3
+1232540 vfprintf(0x17ea2a0, "H %d: started\n", 0x7ffd44ea63d8 <unfinished ...>
+1232538 <... srand resumed> )                    = <void>
+1232540 <... vfprintf resumed> )                 = 13
+1232538 sem_wait(0x7f9d5350f000, 1, 0x7f9d534d4024, 0x7f9d534d45c0 <unfinished ...>
+1232540 sem_post(0x7f9d5350f000, 0, 0x7f9d5330e740, 0) = 0
+1232540 rand( <unfinished ...>
+1232542 <... usleep resumed> )                   = <void>
+1232540 <... rand resumed> )                     = 1397555013
+1232542 sem_wait(0x7f9d5350f000, 5, 0, 0x7f9d533d8a7a <unfinished ...>
+1232540 usleep(1000 <unfinished ...>
+1232538 <... sem_wait resumed> )                 = 0
+1232538 fprintf(0x17ea2a0, "%d: ", 5)            = 3
+1232538 vfprintf(0x17ea2a0, "H %d: started\n", 0x7ffd44ea63d8) = 13
+1232538 sem_post(0x7f9d5350f000, 0, 0x7f9d5330e740, 0 <unfinished ...>
+1232545 <... sem_wait resumed> )                 = 0
+1232538 <... sem_post resumed> )                 = 0
+1232543 <... usleep resumed> )                   = <void>
+1232545 fprintf(0x17ea2a0, "%d: ", 6 <unfinished ...>
+1232543 sem_wait(0x7f9d5350f000, 1, 0, 0x7f9d533d8a7a <unfinished ...>
+1232538 rand()                                   = 435862436
+1232545 <... fprintf resumed> )                  = 3
+1232538 usleep(1000 <unfinished ...>
+1232545 vfprintf(0x17ea2a0, "O %d: started\n", 0x7ffd44ea63d8) = 13
+1232545 sem_post(0x7f9d5350f000, 0, 0x7f9d5330e740, 0) = 0
+1232544 <... sem_wait resumed> )                 = 0
+1232545 rand( <unfinished ...>
+1232544 fprintf(0x17ea2a0, "%d: ", 7 <unfinished ...>
+1232545 <... rand resumed> )                     = 1330516451
+1232545 usleep(1000 <unfinished ...>
+1232544 <... fprintf resumed> )                  = 3
+1232544 vfprintf(0x17ea2a0, "O %d: going to queue\n", 0x7ffd44ea63d8 <unfinished ...>
+1232540 <... usleep resumed> )                   = <void>
+1232540 sem_wait(0x7f9d5350f000, 3, 0, 0x7f9d533d8a7a <unfinished ...>
+1232544 <... vfprintf resumed> )                 = 20
+1232544 sem_post(0x7f9d5350f000, 0, 0x7f9d5330e740, 0) = 0
+1232544 sem_wait(0x7f9d53515000, 1, 1, 0x7f9d534f2095 <unfinished ...>
+1232539 <... sem_wait resumed> )                 = 0
+1232539 fprintf(0x17ea2a0, "%d: ", 8 <unfinished ...>
+1232544 <... sem_wait resumed> )                 = 0
+1232544 sem_post(0x7f9d53515000, 1, 1, 0x7f9d534f2095) = 0
+1232539 <... fprintf resumed> )                  = 3
+1232544 sem_wait(0x7f9d53514000, 128, 1, 0x7f9d534f2095 <unfinished ...>
+1232539 vfprintf(0x17ea2a0, "H %d: started\n", 0x7ffd44ea63d8 <unfinished ...>
+1232538 <... usleep resumed> )                   = <void>
+1232539 <... vfprintf resumed> )                 = 13
+1232538 sem_wait(0x7f9d5350f000, 1, 0, 0x7f9d533d8a7a <unfinished ...>
+1232539 sem_post(0x7f9d5350f000, 0, 0x7f9d5330e740, 0) = 0
+1232538 <... sem_wait resumed> )                 = 0
+1232539 rand( <unfinished ...>
+1232538 fprintf(0x17ea2a0, "%d: ", 9 <unfinished ...>
+1232545 <... usleep resumed> )                   = <void>
+1232539 <... rand resumed> )                     = 1236243647
+1232545 sem_wait(0x7f9d5350f000, 3, 0, 0x7f9d533d8a7a <unfinished ...>
+1232539 usleep(1000 <unfinished ...>
+1232538 <... fprintf resumed> )                  = 3
+1232538 vfprintf(0x17ea2a0, "H %d: going to queue\n", 0x7ffd44ea63d8) = 20
+1232538 sem_post(0x7f9d5350f000, 0, 0x7f9d5330e740, 0 <unfinished ...>
+1232542 <... sem_wait resumed> )                 = 0
+1232538 <... sem_post resumed> )                 = 0
+1232542 fprintf(0x17ea2a0, "%d: ", 10 <unfinished ...>
+1232538 sem_wait(0x7f9d53515000, 1, 1, 0x7f9d534f2095) = 0
+1232538 sem_post(0x7f9d53515000, 1, 1, 0x7f9d534f2095 <unfinished ...>
+1232542 <... fprintf resumed> )                  = 4
+1232538 <... sem_post resumed> )                 = 0
+1232542 vfprintf(0x17ea2a0, "H %d: going to queue\n", 0x7ffd44ea63d8 <unfinished ...>
+1232538 sem_wait(0x7f9d53513000, 128, 1, 0x7f9d534f2095 <unfinished ...>
+1232542 <... vfprintf resumed> )                 = 20
+1232542 sem_post(0x7f9d5350f000, 0, 0x7f9d5330e740, 0 <unfinished ...>
+1232543 <... sem_wait resumed> )                 = 0
+1232542 <... sem_post resumed> )                 = 0
+1232543 fprintf(0x17ea2a0, "%d: ", 11 <unfinished ...>
+1232542 sem_wait(0x7f9d53515000, 1, 1, 0x7f9d534f2095) = 0
+1232543 <... fprintf resumed> )                  = 4
+1232542 sem_post(0x7f9d53513000, 1, 1, 0x7f9d534f2095 <unfinished ...>
+1232543 vfprintf(0x17ea2a0, "O %d: going to queue\n", 0x7ffd44ea63d8) = 20
+1232542 <... sem_post resumed> )                 = 0
+1232543 sem_post(0x7f9d5350f000, 0, 0x7f9d5330e740, 0 <unfinished ...>
+1232542 sem_post(0x7f9d53513000, 1, 1, 0x7f9d534f2095 <unfinished ...>
+1232543 <... sem_post resumed> )                 = 0
+1232542 <... sem_post resumed> )                 = 0
+1232543 sem_wait(0x7f9d53515000, 1, 1, 0x7f9d534f2095 <unfinished ...>
+1232542 sem_post(0x7f9d53514000, 1, 0, 0x7f9d534f2095) = 0
+1232544 <... sem_wait resumed> )                 = 0
+1232542 sem_wait(0x7f9d53513000, 1, 0, 0x7f9d534f2095 <unfinished ...>
+1232544 sem_wait(0x7f9d5350f000, 2, 1, 0x440801 <unfinished ...>
+1232542 <... sem_wait resumed> )                 = 0
+1232542 sem_wait(0x7f9d5350f000, 5, 1, 0x7f9d534f2095 <unfinished ...>
+1232540 <... sem_wait resumed> )                 = 0
+1232540 fprintf(0x17ea2a0, "%d: ", 12 <unfinished ...>
+1232539 <... usleep resumed> )                   = <void>
+1232539 sem_wait(0x7f9d5350f000, 2, 0, 0x7f9d533d8a7a <unfinished ...>
+1232540 <... fprintf resumed> )                  = 4
+1232540 vfprintf(0x17ea2a0, "H %d: going to queue\n", 0x7ffd44ea63d8 <unfinished ...>
+1232538 <... sem_wait resumed> )                 = 0
+1232540 <... vfprintf resumed> )                 = 20
+1232538 sem_wait(0x7f9d5350f000, 1, 1, 0x440801 <unfinished ...>
+1232540 sem_post(0x7f9d5350f000, 0, 0x7f9d5330e740, 0) = 0
+1232540 sem_wait(0x7f9d53515000, 1, 1, 0x7f9d534f2095 <unfinished ...>
+1232538 <... sem_wait resumed> )                 = 0
+1232538 fprintf(0x17ea2a0, "%d: ", 13)           = 4
+1232538 vfprintf(0x17ea2a0, "H %d: creating molecule %d\n", 0x7ffd44ea63d8) = 25
+1232538 sem_post(0x7f9d5350f000, 0, 0x7f9d5330e740, 0 <unfinished ...>
+1232545 <... sem_wait resumed> )                 = 0
+1232538 <... sem_post resumed> )                 = 0
+1232538 sem_wait(0x7f9d53512000, 1, 1, 0x7f9d534f2095 <unfinished ...>
+1232545 fprintf(0x17ea2a0, "%d: ", 14 <unfinished ...>
+1232538 <... sem_wait resumed> )                 = 0
+1232538 sem_post(0x7f9d53512000, 1, 1, 0x7f9d534f2095 <unfinished ...>
+1232545 <... fprintf resumed> )                  = 4
+1232538 <... sem_post resumed> )                 = 0
+1232545 vfprintf(0x17ea2a0, "O %d: going to queue\n", 0x7ffd44ea63d8 <unfinished ...>
+1232538 sem_wait(0x7f9d53511000, 128, 1, 0x7f9d534f2095 <unfinished ...>
+1232545 <... vfprintf resumed> )                 = 20
+1232545 sem_post(0x7f9d5350f000, 0, 0x7f9d5330e740, 0) = 0
+1232545 sem_wait(0x7f9d53515000, 1, 1, 0x7f9d534f2095 <unfinished ...>
+1232544 <... sem_wait resumed> )                 = 0
+1232544 fprintf(0x17ea2a0, "%d: ", 15)           = 4
+1232544 vfprintf(0x17ea2a0, "O %d: creating molecule %d\n", 0x7ffd44ea63d8) = 25
+1232544 sem_post(0x7f9d5350f000, 0, 0x7f9d5330e740, 0) = 0
+1232542 <... sem_wait resumed> )                 = 0
+1232544 sem_wait(0x7f9d53512000, 1, 1, 0x7f9d534f2095 <unfinished ...>
+1232542 fprintf(0x17ea2a0, "%d: ", 16 <unfinished ...>
+1232544 <... sem_wait resumed> )                 = 0
+1232544 sem_post(0x7f9d53512000, 1, 2, 0x7f9d534f2095 <unfinished ...>
+1232542 <... fprintf resumed> )                  = 4
+1232544 <... sem_post resumed> )                 = 0
+1232542 vfprintf(0x17ea2a0, "H %d: creating molecule %d\n", 0x7ffd44ea63d8 <unfinished ...>
+1232544 sem_wait(0x7f9d53511000, 128, 1, 0x7f9d534f2095 <unfinished ...>
+1232542 <... vfprintf resumed> )                 = 25
+1232542 sem_post(0x7f9d5350f000, 0, 0x7f9d5330e740, 0) = 0
+1232539 <... sem_wait resumed> )                 = 0
+1232542 sem_wait(0x7f9d53512000, 1, 1, 0x7f9d534f2095 <unfinished ...>
+1232539 fprintf(0x17ea2a0, "%d: ", 17 <unfinished ...>
+1232542 <... sem_wait resumed> )                 = 0
+1232542 sem_wait(0x7f9d53510000, 1, 3, 0x7f9d534f2095 <unfinished ...>
+1232539 <... fprintf resumed> )                  = 4
+1232542 <... sem_wait resumed> )                 = 0
+1232542 sem_post(0x7f9d53511000, 1, 0, 0x7f9d534f2095 <unfinished ...>
+1232539 vfprintf(0x17ea2a0, "H %d: going to queue\n", 0x7ffd44ea63d8 <unfinished ...>
+1232542 <... sem_post resumed> )                 = 0
+1232542 sem_post(0x7f9d53512000, 1, 1, 0x7f9d534f2095 <unfinished ...>
+1232539 <... vfprintf resumed> )                 = 20
+1232542 <... sem_post resumed> )                 = 0
+1232539 sem_post(0x7f9d5350f000, 0, 0x7f9d5330e740, 0 <unfinished ...>
+1232542 sem_wait(0x7f9d53511000, 128, 1, 0x7f9d534f2095) = 0
+1232542 sem_post(0x7f9d53511000, 128, 0x200000000, 0x7f9d534f2095 <unfinished ...>
+1232539 <... sem_post resumed> )                 = 0
+1232541 <... sem_wait resumed> )                 = 0
+1232544 <... sem_wait resumed> )                 = 0
+1232542 <... sem_post resumed> )                 = 0
+1232544 sem_post(0x7f9d53511000, 0, 0x100000000, 0x440801 <unfinished ...>
+1232542 sem_wait(0x7f9d5350f000, 5, 1, 0x7f9d534f2095 <unfinished ...>
+1232541 fprintf(0x17ea2a0, "%d: ", 18 <unfinished ...>
+1232544 <... sem_post resumed> )                 = 0
+1232544 sem_wait(0x7f9d5350f000, 2, 1, 0x7f9d534f2095 <unfinished ...>
+1232541 <... fprintf resumed> )                  = 4
+1232539 sem_wait(0x7f9d53515000, 1, 1, 0x7f9d534f2095 <unfinished ...>
+1232541 vfprintf(0x17ea2a0, "H %d: started\n", 0x7ffd44ea63d8 <unfinished ...>
+1232538 <... sem_wait resumed> )                 = 0
+1232541 <... vfprintf resumed> )                 = 13
+1232538 sem_post(0x7f9d53511000, 0, 0, 0x440801 <unfinished ...>
+1232541 sem_post(0x7f9d5350f000, 0, 0x7f9d5330e740, 0 <unfinished ...>
+1232538 <... sem_post resumed> )                 = 0
+1232542 <... sem_wait resumed> )                 = 0
+1232541 <... sem_post resumed> )                 = 0
+1232542 fprintf(0x17ea2a0, "%d: ", 19 <unfinished ...>
+1232541 rand()                                   = 34981081
+1232541 usleep(1000 <unfinished ...>
+1232542 <... fprintf resumed> )                  = 4
+1232542 vfprintf(0x17ea2a0, "H %d: molecule %d created\n", 0x7ffd44ea63d8 <unfinished ...>
+1232538 sem_wait(0x7f9d5350f000, 1, 1, 0x440801 <unfinished ...>
+1232542 <... vfprintf resumed> )                 = 24
+1232542 sem_post(0x7f9d5350f000, 0, 0x7f9d5330e740, 0) = 0
+1232544 <... sem_wait resumed> )                 = 0
+1232542 sem_wait(0x7f9d53512000, 1, 1, 0x7f9d534f2095 <unfinished ...>
+1232544 fprintf(0x17ea2a0, "%d: ", 20 <unfinished ...>
+1232542 <... sem_wait resumed> )                 = 0
+1232542 sem_post(0x7f9d53512000, 1, 2, 0x7f9d534f2095 <unfinished ...>
+1232544 <... fprintf resumed> )                  = 4
+1232542 <... sem_post resumed> )                 = 0
+1232544 vfprintf(0x17ea2a0, "O %d: molecule %d created\n", 0x7ffd44ea63d8 <unfinished ...>
+1232542 sem_wait(0x7f9d53510000, 128, 1, 0x7f9d534f2095 <unfinished ...>
+1232544 <... vfprintf resumed> )                 = 24
+1232544 sem_post(0x7f9d5350f000, 0, 0x7f9d5330e740, 0) = 0
+1232544 sem_wait(0x7f9d53512000, 1, 1, 0x7f9d534f2095 <unfinished ...>
+1232538 <... sem_wait resumed> )                 = 0
+1232544 <... sem_wait resumed> )                 = 0
+1232538 fprintf(0x17ea2a0, "%d: ", 21 <unfinished ...>
+1232544 sem_post(0x7f9d53512000, 1, 1, 0x7f9d534f2095) = 0
+1232544 sem_wait(0x7f9d53510000, 128, 1, 0x7f9d534f2095 <unfinished ...>
+1232538 <... fprintf resumed> )                  = 4
+1232538 vfprintf(0x17ea2a0, "H %d: molecule %d created\n", 0x7ffd44ea63d8 <unfinished ...>
+1232541 <... usleep resumed> )                   = <void>
+1232541 sem_wait(0x7f9d5350f000, 4, 0, 0x7f9d533d8a7a <unfinished ...>
+1232538 <... vfprintf resumed> )                 = 24
+1232538 sem_post(0x7f9d5350f000, 0, 0x7f9d5330e740, 0) = 0
+1232538 sem_wait(0x7f9d53512000, 1, 1, 0x7f9d534f2095 <unfinished ...>
+1232541 <... sem_wait resumed> )                 = 0
+1232541 fprintf(0x17ea2a0, "%d: ", 22 <unfinished ...>
+1232538 <... sem_wait resumed> )                 = 0
+1232538 sem_wait(0x7f9d53511000, 1, 0, 0x7f9d534f2095) = 0
+1232541 <... fprintf resumed> )                  = 4
+1232538 sem_post(0x7f9d53510000, 1, 0, 0x7f9d534f2095 <unfinished ...>
+1232541 vfprintf(0x17ea2a0, "H %d: going to queue\n", 0x7ffd44ea63d8 <unfinished ...>
+1232542 <... sem_wait resumed> )                 = 0
+1232538 <... sem_post resumed> )                 = 0
+1232542 sem_post(0x7f9d53510000, 0, 0x100000000, 0x440801 <unfinished ...>
+1232538 sem_post(0x7f9d53512000, 1, 1, 0x7f9d534f2095 <unfinished ...>
+1232541 <... vfprintf resumed> )                 = 20
+1232544 <... sem_wait resumed> )                 = 0
+1232542 <... sem_post resumed> )                 = 0
+1232544 sem_post(0x7f9d53510000, 0, 0, 0x440801 <unfinished ...>
+1232542 exit(0 <unfinished ...>
+1232544 <... sem_post resumed> )                 = 0
+1232544 sem_post(0x7f9d53515000, 128, 1, 0x440801 <unfinished ...>
+1232541 sem_post(0x7f9d5350f000, 0, 0x7f9d5330e740, 0 <no return ...>
+1232542 +++ exited (status 0) +++
+1232537 --- SIGCHLD (Child exited) ---
+1232544 <... sem_post resumed> )                 = 0
+1232537 <... wait resumed> )                     = 1232542
+1232544 exit(0 <unfinished ...>
+1232537 wait(nil <unfinished ...>
+1232541 <... sem_post resumed> )                 = 0
+1232543 <... sem_wait resumed> )                 = 0
+1232541 sem_wait(0x7f9d53515000, 128, 1, 0 <no return ...>
+1232544 +++ exited (status 0) +++
+1232543 sem_post(0x7f9d53515000, 0, 1, 0x440801 <no return ...>
+1232537 --- SIGCHLD (Child exited) ---
+1232537 <... wait resumed> )                     = 1232544
+1232537 wait(nil <unfinished ...>
+1232538 <... sem_post resumed> )                 = 0
+1232538 sem_wait(0x7f9d53510000, 128, 1, 0x7f9d534f2095 <unfinished ...>
+1232543 <... sem_post resumed> )                 = 0
+1232540 <... sem_wait resumed> )                 = 0
+1232543 sem_wait(0x7f9d53514000, 1, 1, 0x7f9d534f2095 <unfinished ...>
+1232540 sem_post(0x7f9d53515000, 0, 1, 0x440801 <unfinished ...>
+1232538 <... sem_wait resumed> )                 = 0
+1232545 <... sem_wait resumed> )                 = 0
+1232540 <... sem_post resumed> )                 = 0
+1232545 sem_post(0x7f9d53515000, 0, 2, 0x440801 <unfinished ...>
+1232540 sem_wait(0x7f9d53513000, 1, 1, 0x7f9d534f2095 <unfinished ...>
+1232545 <... sem_post resumed> )                 = 0
+1232539 <... sem_wait resumed> )                 = 0
+1232545 sem_wait(0x7f9d53514000, 1, 1, 0x7f9d534f2095 <unfinished ...>
+1232539 sem_post(0x7f9d53513000, 0, 2, 0x440801 <unfinished ...>
+1232538 sem_post(0x7f9d53510000, 128, 0, 0x7f9d534f2095 <unfinished ...>
+1232540 <... sem_wait resumed> )                 = 0
+1232540 sem_wait(0x7f9d5350f000, 3, 2, 0x440801 <unfinished ...>
+1232539 <... sem_post resumed> )                 = 0
+1232538 <... sem_post resumed> )                 = 0
+1232540 <... sem_wait resumed> )                 = 0
+1232539 sem_post(0x7f9d53513000, 1, 1, 0x7f9d534f2095 <unfinished ...>
+1232540 fprintf(0x17ea2a0, "%d: ", 23 <unfinished ...>
+1232538 exit(0 <unfinished ...>
+1232539 <... sem_post resumed> )                 = 0
+1232540 <... fprintf resumed> )                  = 4
+1232539 sem_post(0x7f9d53514000, 128, 0, 0x7f9d534f2095 <unfinished ...>
+1232540 vfprintf(0x17ea2a0, "H %d: creating molecule %d\n", 0x7ffd44ea63d8 <unfinished ...>
+1232543 <... sem_wait resumed> )                 = 0
+1232540 <... vfprintf resumed> )                 = 25
+1232543 sem_wait(0x7f9d5350f000, 1, 2, 0x440801 <unfinished ...>
+1232540 sem_post(0x7f9d5350f000, 0, 0x7f9d5330e740, 0 <unfinished ...>
+1232543 <... sem_wait resumed> )                 = 0
+1232540 <... sem_post resumed> )                 = 0
+1232543 fprintf(0x17ea2a0, "%d: ", 24 <unfinished ...>
+1232540 sem_wait(0x7f9d53512000, 1, 1, 0x7f9d534f2095) = 0
+1232540 sem_post(0x7f9d53512000, 1, 1, 0x7f9d534f2095 <unfinished ...>
+1232543 <... fprintf resumed> )                  = 4
+1232543 vfprintf(0x17ea2a0, "O %d: creating molecule %d\n", 0x7ffd44ea63d8 <unfinished ...>
+1232540 <... sem_post resumed> )                 = 0
+1232540 sem_wait(0x7f9d53511000, 128, 1, 0x7f9d534f2095 <unfinished ...>
+1232543 <... vfprintf resumed> )                 = 25
+1232543 sem_post(0x7f9d5350f000, 0, 0x7f9d5330e740, 0 <unfinished ...>
+1232539 <... sem_post resumed> )                 = 0
+1232539 sem_wait(0x7f9d53513000, 1, 1, 0x7f9d534f2095 <unfinished ...>
+1232543 <... sem_post resumed> )                 = 0
+1232543 sem_wait(0x7f9d53512000, 128, 1, 0 <unfinished ...>
+1232539 <... sem_wait resumed> )                 = 0
+1232539 sem_wait(0x7f9d5350f000, 2, 2, 0x7f9d534f2095 <unfinished ...>
+1232543 <... sem_wait resumed> )                 = 0
+1232543 sem_post(0x7f9d53512000, 128, 2, 0 <unfinished ...>
+1232539 <... sem_wait resumed> )                 = 0
+1232539 fprintf(0x17ea2a0, "%d: ", 25 <unfinished ...>
+1232543 <... sem_post resumed> )                 = 0
+1232543 sem_wait(0x7f9d53511000, 128, 1, 0 <unfinished ...>
+1232539 <... fprintf resumed> )                  = 4
+1232538 +++ exited (status 0) +++
+1232539 vfprintf(0x17ea2a0, "H %d: creating molecule %d\n", 0x7ffd44ea63d8 <no return ...>
+1232537 --- SIGCHLD (Child exited) ---
+1232537 <... wait resumed> )                     = 1232538
+1232539 <... vfprintf resumed> )                 = 25
+1232537 wait(nil <unfinished ...>
+1232539 sem_post(0x7f9d5350f000, 0, 0x7f9d5330e740, 0) = 0
+1232539 sem_wait(0x7f9d53512000, 128, 1, 0)      = 0
+1232539 sem_wait(0x7f9d53510000, 128, 3, 0)      = 0
+1232539 sem_post(0x7f9d53511000, 128, 0, 0)      = 0
+1232540 <... sem_wait resumed> )                 = 0
+1232539 sem_post(0x7f9d53512000, 1, 1, 0x7f9d534f2095 <unfinished ...>
+1232540 sem_post(0x7f9d53511000, 0, 0x100000000, 0x440801 <unfinished ...>
+1232539 <... sem_post resumed> )                 = 0
+1232539 sem_wait(0x7f9d53511000, 128, 1, 0x7f9d534f2095 <unfinished ...>
+1232540 <... sem_post resumed> )                 = 0
+1232543 <... sem_wait resumed> )                 = 0
+1232540 sem_wait(0x7f9d5350f000, 3, 2, 0x7f9d534f2095 <unfinished ...>
+1232543 sem_post(0x7f9d53511000, 0, 0, 0x440801 <unfinished ...>
+1232540 <... sem_wait resumed> )                 = 0
+1232540 fprintf(0x17ea2a0, "%d: ", 26 <unfinished ...>
+1232543 <... sem_post resumed> )                 = 0
+1232543 sem_wait(0x7f9d5350f000, 1, 2, 0x7f9d534f2095 <unfinished ...>
+1232540 <... fprintf resumed> )                  = 4
+1232540 vfprintf(0x17ea2a0, "H %d: molecule %d created\n", 0x7ffd44ea63d8 <unfinished ...>
+1232539 <... sem_wait resumed> )                 = 0
+1232539 sem_post(0x7f9d53511000, 0, 0, 0x440801 <unfinished ...>
+1232540 <... vfprintf resumed> )                 = 24
+1232540 sem_post(0x7f9d5350f000, 0, 0x7f9d5330e740, 0 <unfinished ...>
+1232539 <... sem_post resumed> )                 = 0
+1232539 sem_wait(0x7f9d5350f000, 2, 2, 0x440801 <unfinished ...>
+1232543 <... sem_wait resumed> )                 = 0
+1232543 fprintf(0x17ea2a0, "%d: ", 27 <unfinished ...>
+1232540 <... sem_post resumed> )                 = 0
+1232540 sem_wait(0x7f9d53512000, 1, 1, 0x7f9d534f2095 <unfinished ...>
+1232543 <... fprintf resumed> )                  = 4
+1232543 vfprintf(0x17ea2a0, "O %d: molecule %d created\n", 0x7ffd44ea63d8 <unfinished ...>
+1232540 <... sem_wait resumed> )                 = 0
+1232540 sem_post(0x7f9d53512000, 1, 2, 0x7f9d534f2095) = 0
+1232543 <... vfprintf resumed> )                 = 24
+1232540 sem_wait(0x7f9d53510000, 128, 1, 0x7f9d534f2095 <unfinished ...>
+1232543 sem_post(0x7f9d5350f000, 0, 0x7f9d5330e740, 0) = 0
+1232539 <... sem_wait resumed> )                 = 0
+1232543 sem_wait(0x7f9d53512000, 1, 1, 0x7f9d534f2095 <unfinished ...>
+1232539 fprintf(0x17ea2a0, "%d: ", 28 <unfinished ...>
+1232543 <... sem_wait resumed> )                 = 0
+1232543 sem_post(0x7f9d53512000, 1, 1, 0x7f9d534f2095 <unfinished ...>
+1232539 <... fprintf resumed> )                  = 4
+1232543 <... sem_post resumed> )                 = 0
+1232539 vfprintf(0x17ea2a0, "H %d: molecule %d created\n", 0x7ffd44ea63d8 <unfinished ...>
+1232543 sem_wait(0x7f9d53510000, 128, 1, 0x7f9d534f2095 <unfinished ...>
+1232539 <... vfprintf resumed> )                 = 24
+1232539 sem_post(0x7f9d5350f000, 0, 0x7f9d5330e740, 0) = 0
+1232539 sem_wait(0x7f9d53512000, 128, 1, 0)      = 0
+1232539 sem_wait(0x7f9d53511000, 128, 0, 0)      = 0
+1232539 sem_post(0x7f9d53510000, 128, 0, 0 <unfinished ...>
+1232540 <... sem_wait resumed> )                 = 0
+1232539 <... sem_post resumed> )                 = 0
+1232540 sem_post(0x7f9d53510000, 0, 0x100000000, 0x440801 <unfinished ...>
+1232539 sem_post(0x7f9d53512000, 1, 1, 0x7f9d534f2095) = 0
+1232543 <... sem_wait resumed> )                 = 0
+1232540 <... sem_post resumed> )                 = 0
+1232543 sem_post(0x7f9d53510000, 0, 0, 0x440801 <unfinished ...>
+1232540 exit(0 <unfinished ...>
+1232543 <... sem_post resumed> )                 = 0
+1232543 sem_post(0x7f9d53514000, 128, 3, 0x440801 <unfinished ...>
+1232539 sem_wait(0x7f9d53510000, 128, 1, 0x7f9d534f2095 <no return ...>
+1232540 +++ exited (status 0) +++
+1232537 --- SIGCHLD (Child exited) ---
+1232545 <... sem_wait resumed> )                 = 0
+1232537 <... wait resumed> )                     = 1232540
+1232545 sem_wait(0x7f9d5350f000, 3, 3, 0x440801 <unfinished ...>
+1232537 wait(nil <unfinished ...>
+1232545 <... sem_wait resumed> )                 = 0
+1232545 fprintf(0x17ea2a0, "%d: ", 29 <unfinished ...>
+1232543 <... sem_post resumed> )                 = 0
+1232543 sem_post(0x7f9d53513000, 1, 1, 0x7f9d534f2095 <unfinished ...>
+1232545 <... fprintf resumed> )                  = 4
+1232543 <... sem_post resumed> )                 = 0
+1232545 vfprintf(0x17ea2a0, "O %d: not enough H\n", 0x7ffd44ea63d8 <unfinished ...>
+1232543 sem_post(0x7f9d53515000, 128, 1, 0x7f9d534f2095 <unfinished ...>
+1232545 <... vfprintf resumed> )                 = 18
+1232543 <... sem_post resumed> )                 = 0
+1232541 <... sem_wait resumed> )                 = 0
+1232543 exit(0 <unfinished ...>
+1232545 sem_post(0x7f9d5350f000, 0, 0x7f9d5330e740, 0 <unfinished ...>
+1232541 sem_post(0x7f9d53515000, 0, 1, 0x440801 <unfinished ...>
+1232545 <... sem_post resumed> )                 = 0
+1232545 sem_post(0x7f9d53514000, 128, 1, 0 <no return ...>
+1232543 +++ exited (status 0) +++
+1232537 --- SIGCHLD (Child exited) ---
+1232545 <... sem_post resumed> )                 = 0
+1232537 <... wait resumed> )                     = 1232543
+1232545 exit(0 <unfinished ...>
+1232537 wait(nil <unfinished ...>
+1232541 <... sem_post resumed> )                 = 0
+1232541 sem_wait(0x7f9d53513000, 128, 1, 0x440801 <no return ...>
+1232545 +++ exited (status 0) +++
+1232541 <... sem_wait resumed> )                 = 0
+1232539 <... sem_wait resumed> )                 = 0
+1232537 --- SIGCHLD (Child exited) ---
+1232541 sem_wait(0x7f9d5350f000, 4, 3, 0x440801 <unfinished ...>
+1232537 <... wait resumed> )                     = 1232545
+1232537 wait(nil <unfinished ...>
+1232541 <... sem_wait resumed> )                 = 0
+1232541 fprintf(0x17ea2a0, "%d: ", 30 <unfinished ...>
+1232539 sem_post(0x7f9d53510000, 128, 0, 0x7f9d534f2095 <unfinished ...>
+1232541 <... fprintf resumed> )                  = 4
+1232539 <... sem_post resumed> )                 = 0
+1232541 vfprintf(0x17ea2a0, "H %d: not enough O or H\n", 0x7ffd44ea63d8 <unfinished ...>
+1232539 exit(0 <unfinished ...>
+1232541 <... vfprintf resumed> )                 = 23
+1232541 sem_post(0x7f9d5350f000, 0, 0x7f9d5330e740, 0) = 0
+1232539 +++ exited (status 0) +++
+1232541 sem_post(0x7f9d53513000, 128, 1, 0 <no return ...>
+1232537 --- SIGCHLD (Child exited) ---
+1232537 <... wait resumed> )                     = 1232539
+1232541 <... sem_post resumed> )                 = 0
+1232537 wait(nil <unfinished ...>
+1232541 exit(0 <no return ...>
+1232541 +++ exited (status 0) +++
+1232537 --- SIGCHLD (Child exited) ---
+1232537 <... wait resumed> )                     = 1232541
+1232537 wait(nil)                                = -1
+1232537 sem_destroy(0x7f9d53515000, 0, -120, 0x7f9d533dda5a) = 0
+1232537 munmap(0x7f9d53515000, 32, -120, 0x7f9d533dda5a) = 0
+1232537 sem_destroy(0x7f9d53514000, 32, -120, 0x7f9d5340c01b) = 0
+1232537 munmap(0x7f9d53514000, 32, -120, 0x7f9d5340c01b) = 0
+1232537 sem_destroy(0x7f9d53513000, 32, -120, 0x7f9d5340c01b) = 0
+1232537 munmap(0x7f9d53513000, 32, -120, 0x7f9d5340c01b) = 0
+1232537 sem_destroy(0x7f9d53512000, 32, -120, 0x7f9d5340c01b) = 0
+1232537 munmap(0x7f9d53512000, 32, -120, 0x7f9d5340c01b) = 0
+1232537 sem_destroy(0x7f9d53511000, 32, -120, 0x7f9d5340c01b) = 0
+1232537 munmap(0x7f9d53511000, 32, -120, 0x7f9d5340c01b) = 0
+1232537 sem_destroy(0x7f9d53510000, 32, -120, 0x7f9d5340c01b) = 0
+1232537 munmap(0x7f9d53510000, 32, -120, 0x7f9d5340c01b) = 0
+1232537 sem_destroy(0x7f9d5350f000, 32, -120, 0x7f9d5340c01b) = 0
+1232537 munmap(0x7f9d5350f000, 32, -120, 0x7f9d5340c01b) = 0
+1232537 munmap(0x7f9d5350e000, 4, -120, 0x7f9d5340c01b) = 0
+1232537 munmap(0x7f9d5350d000, 4, -120, 0x7f9d5340c01b) = 0
+1232537 munmap(0x7f9d5350c000, 4, -120, 0x7f9d5340c01b) = 0
+1232537 munmap(0x7f9d5350a000, 4, -120, 0x7f9d5340c01b) = 0
+1232537 munmap(0x7f9d5350b000, 4, -120, 0x7f9d5340c01b) = 0
+1232537 munmap(0x7f9d53509000, 4, -120, 0x7f9d5340c01b) = 0
+1232537 munmap(0x7f9d53508000, 4, -120, 0x7f9d5340c01b) = 0
+1232537 munmap(0x7f9d53507000, 4, -120, 0x7f9d5340c01b) = 0
+1232537 +++ exited (status 0) +++

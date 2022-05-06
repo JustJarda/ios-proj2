@@ -1,0 +1,1 @@
+ltrace -f -o ltrace.txt ./proj2 2 5 1 2 <stdin >stdout 2>stderr; echo $? >errcode

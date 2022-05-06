@@ -1,0 +1,4 @@
+
+./proj2 7 15 30 88 <stdin >stdout 2>stderr; echo $? >errcode
+./proj2 8 16 31 89 <stdin >stdout 2>stderr; echo $? >errcode
+./proj2 9 17 32 90 <stdin >stdout 2>stderr; echo $? >errcode

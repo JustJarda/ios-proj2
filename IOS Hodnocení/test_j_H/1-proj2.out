@@ -1,0 +1,180 @@
+1: H 1: started
+2: H 2: started
+3: H 3: started
+4: H 4: started
+5: H 5: started
+6: H 6: started
+7: H 7: started
+8: H 8: started
+9: H 9: started
+10: H 10: started
+11: H 11: started
+12: H 12: started
+13: H 13: started
+14: H 14: started
+15: H 15: started
+16: H 16: started
+17: H 17: started
+18: H 19: started
+19: H 20: started
+20: H 21: started
+21: O 1: started
+22: O 2: started
+23: O 3: started
+24: O 4: started
+25: O 5: started
+26: O 6: started
+27: O 7: started
+28: O 8: started
+29: O 9: started
+30: O 10: started
+31: O 11: started
+32: O 12: started
+33: O 13: started
+34: O 14: started
+35: O 15: started
+36: O 16: started
+37: O 17: started
+38: O 18: started
+39: O 19: started
+40: O 20: started
+41: O 21: started
+42: O 22: started
+43: O 23: started
+44: O 24: started
+45: O 25: started
+46: O 26: started
+47: O 27: started
+48: O 28: started
+49: O 29: started
+50: H 18: started
+51: O 18: going to queue
+52: H 4: going to queue
+53: O 2: going to queue
+54: O 29: going to queue
+55: O 1: going to queue
+56: O 7: going to queue
+57: H 17: going to queue
+58: H 17: creating molecule 1
+59: H 4: creating molecule 1
+60: O 18: creating molecule 1
+61: O 18: molecule 1 created
+62: H 4: molecule 1 created
+63: H 17: molecule 1 created
+64: O 8: going to queue
+65: O 10: going to queue
+66: H 12: going to queue
+67: O 6: going to queue
+68: H 15: going to queue
+69: H 15: creating molecule 2
+70: O 14: going to queue
+71: H 12: creating molecule 2
+72: O 2: creating molecule 2
+73: O 15: going to queue
+74: O 2: molecule 2 created
+75: H 12: molecule 2 created
+76: H 15: molecule 2 created
+77: O 20: going to queue
+78: O 4: going to queue
+79: O 5: going to queue
+80: H 9: going to queue
+81: O 17: going to queue
+82: O 21: going to queue
+83: H 7: going to queue
+84: O 22: going to queue
+85: H 7: creating molecule 3
+86: H 9: creating molecule 3
+87: O 29: creating molecule 3
+88: O 29: molecule 3 created
+89: H 7: molecule 3 created
+90: H 9: molecule 3 created
+91: H 18: going to queue
+92: O 23: going to queue
+93: H 1: going to queue
+94: H 1: creating molecule 4
+95: H 18: creating molecule 4
+96: O 1: creating molecule 4
+97: O 1: molecule 4 created
+98: H 6: going to queue
+99: H 18: molecule 4 created
+100: H 1: molecule 4 created
+101: H 3: going to queue
+102: H 3: creating molecule 5
+103: H 6: creating molecule 5
+104: O 7: creating molecule 5
+105: O 7: molecule 5 created
+106: H 3: molecule 5 created
+107: H 6: molecule 5 created
+108: O 11: going to queue
+109: H 5: going to queue
+110: O 3: going to queue
+111: H 16: going to queue
+112: H 16: creating molecule 6
+113: H 5: creating molecule 6
+114: O 8: creating molecule 6
+115: O 8: molecule 6 created
+116: H 16: molecule 6 created
+117: H 5: molecule 6 created
+118: H 21: going to queue
+119: O 26: going to queue
+120: O 9: going to queue
+121: O 13: going to queue
+122: H 20: going to queue
+123: H 20: creating molecule 7
+124: H 21: creating molecule 7
+125: O 10: creating molecule 7
+126: O 10: molecule 7 created
+127: H 20: molecule 7 created
+128: H 21: molecule 7 created
+129: H 19: going to queue
+130: H 14: going to queue
+131: H 14: creating molecule 8
+132: H 19: creating molecule 8
+133: O 6: creating molecule 8
+134: O 6: molecule 8 created
+135: H 14: molecule 8 created
+136: H 19: molecule 8 created
+137: O 16: going to queue
+138: O 24: going to queue
+139: O 25: going to queue
+140: O 28: going to queue
+141: H 2: going to queue
+142: O 12: going to queue
+143: H 11: going to queue
+144: H 11: creating molecule 9
+145: O 14: creating molecule 9
+146: H 2: creating molecule 9
+147: H 2: molecule 9 created
+148: H 11: molecule 9 created
+149: O 14: molecule 9 created
+150: H 13: going to queue
+151: H 8: going to queue
+152: H 8: creating molecule 10
+153: H 13: creating molecule 10
+154: O 15: creating molecule 10
+155: O 15: molecule 10 created
+156: H 13: molecule 10 created
+157: H 8: molecule 10 created
+158: H 10: going to queue
+159: H 10: not enough O or H
+160: O 20: not enough H
+161: O 4: not enough H
+162: O 5: not enough H
+163: O 17: not enough H
+164: O 21: not enough H
+165: O 22: not enough H
+166: O 23: not enough H
+167: O 11: not enough H
+168: O 3: not enough H
+169: O 26: not enough H
+170: O 9: not enough H
+171: O 13: not enough H
+172: O 16: not enough H
+173: O 24: not enough H
+174: O 25: not enough H
+175: O 28: not enough H
+176: O 12: not enough H
+177: O 27: going to queue
+178: O 27: not enough H
+179: O 19: going to queue
+180: O 19: not enough H

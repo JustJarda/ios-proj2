@@ -1,0 +1,18 @@
+--- original/Makefile	2022-04-28 11:14:10.000000000 +0200
++++ project/Makefile	2022-05-05 10:54:49.388822431 +0200
+@@ -3,7 +3,7 @@
+ default: all
+ 
+ all:	
+-	gcc -std=gnu99 -Wall -Wextra -Werror -pedantic $(TARGET).c -o $(TARGET) 
++	gcc -std=gnu99 -Wall -Wextra -Werror -pedantic -pthread $(TARGET).c -o $(TARGET) 
+ 
+ run: all
+ 	./$(TARGET) 3 6 100 100
+@@ -12,4 +12,4 @@
+ 	 ./$(TARGET) 6 12 100 100
+ 
+ test: 
+-	gcc -std=gnu99 $(TARGET).c -o $(TARGET)
+\ Chybí znak konce řádku na konci souboru
++	gcc -std=gnu99 $(TARGET).c -o $(TARGET)
