@@ -11,3 +11,7 @@ Pomocí Makefilu
 
 ## Shrnutí 
 Projekt byl hodnocen 15/15 viz **IOS Hodnocení**
+
+
+
+**Užijte si opravování/patche :pepela:**
